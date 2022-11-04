@@ -10,6 +10,7 @@ With this you can:
 TODO:
 - Refactory
 - More efficient reversing algorithm
+- Data flow with a diagram
 - Ordering
 - Remove at index, or at the end or beginning of the list
 - Test cases
