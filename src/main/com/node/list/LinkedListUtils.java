@@ -1,11 +1,17 @@
-package LinkedListPractice;
+package com.node.list;
 
 import java.util.Arrays;
 import java.util.Collections;
 
+import com.node.Node;
+
 public abstract class LinkedListUtils {
     private LinkedListUtils() {
     }
+
+    // ***************
+    // PRIVATE METHODS
+    // ***************
 
     private static void reverseLinkedList(LinkedList linkedListReference, LinkedList newLinkedList) {
         for (int i = linkedListReference.getSize(); i > 0; i--) {
@@ -23,10 +29,7 @@ public abstract class LinkedListUtils {
 
         } else if (nodeData.getClass().isArray()) {
 
-            Object[] convertedNodeData = (Object[]) nodeData;
-            Object[] copiedArray = Arrays.copyOf(convertedNodeData, convertedNodeData.length);
-
-            Collections.reverse(Arrays.asList(copiedArray));
+            Object[] copiedArray = objectToArray(nodeData);
 
             newLinkedList.add(copiedArray);
 
@@ -35,6 +38,18 @@ public abstract class LinkedListUtils {
             newLinkedList.add(nodeData);
         }
     }
+
+    private static Object[] objectToArray(final Object nodeData) {
+        Object[] convertedNodeData = (Object[]) nodeData;
+        Object[] copiedArray = Arrays.copyOf(convertedNodeData, convertedNodeData.length);
+
+        Collections.reverse(Arrays.asList(copiedArray));
+        return copiedArray;
+    }
+
+    // **************
+    // PUBLIC METHODS
+    // **************
 
     public static LinkedList getReversedLinkedList(LinkedList linkedList) {
         LinkedList reversedLinkedList = new LinkedList();
@@ -46,15 +61,7 @@ public abstract class LinkedListUtils {
         return reversedLinkedList;
     }
 
-    public static LinkedList getOrderedLinkedList(LinkedList linkedList) {
-        LinkedList reversedLinkedList = new LinkedList();
-
-        if (linkedList.getHead() != null) {
-            for (int i = linkedList.getSize(); i > 0; i--) {
-                reversedLinkedList.add(linkedList.getNodeAtIndex(i).getData());
-            }
-        }
-
-        return reversedLinkedList;
+    public static void getOrderedLinkedList(LinkedList linkedList) {
+        // TODO
     }
 }

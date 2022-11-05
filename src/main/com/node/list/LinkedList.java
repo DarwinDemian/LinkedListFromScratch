@@ -1,30 +1,22 @@
-package LinkedListPractice;
+package com.node.list;
+
 import java.util.Arrays;
 
+import com.node.Node;
+
 public class LinkedList {
+
+    // **************
+    // PRIVATE FIELDS
+    // **************
+
     private int counter = 0;
     private Node head;
     private Node lastNode;
 
-    public void add(Object data) {
-        if (head == null) {
-            head = new Node(data);
-        }
-
-        Node nodeToBeAdded = new Node(data);
-        Node nodeRev = head;
-
-        if (nodeRev != null) {
-            while (nodeRev.getNext() != null) {
-                nodeRev = nodeRev.getNext();
-            }
-
-            lastNode = nodeToBeAdded;
-            nodeRev.setNext(nodeToBeAdded);
-            counter++;
-            nodeToBeAdded.setIndex(counter);
-        }
-    }
+    // *****************
+    // GETTERS & SETTERS
+    // *****************
 
     public Node getLastNode() {
         return lastNode;
@@ -64,6 +56,36 @@ public class LinkedList {
         return null;
     }
 
+    // ***************
+    // PRIVATE METHODS
+    // ***************
+
+    private void updateVariables(Node nodeToBeAdded, Node nodeRev) {
+        lastNode = nodeToBeAdded;
+        nodeRev.setNext(nodeToBeAdded);
+        counter++;
+        nodeToBeAdded.setIndex(counter);
+    }
+
+    // **************
+    // PUBLIC METHODS
+    // **************
+
+    public void add(Object data) {
+        if (head == null) {
+            head = new Node(data);
+        }
+
+        Node nodeToBeAdded = new Node(data);
+        Node nodeRev = head;
+
+        while (nodeRev.getNext() != null) {
+            nodeRev = nodeRev.getNext();
+        }
+
+        updateVariables(nodeToBeAdded, nodeRev);
+    }
+
     public String toString() {
         StringBuilder output = new StringBuilder();
 
@@ -79,7 +101,7 @@ public class LinkedList {
 
                 if (nodeData.getClass().isArray()) {
                     nodeDataAsString = Arrays.asList((Object[]) nodeData).toString();
-                } 
+                }
 
                 output.append(nodeDataAsString);
                 output.append(" ]");

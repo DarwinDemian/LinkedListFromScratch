@@ -1,9 +1,18 @@
-package LinkedListPractice;
+package com.node;
 
 public class Node {
+
+    // **************
+    // PRIVATE FIELDS
+    // **************
+
     private Object data;
     private Node next;
     private int index = 0;
+
+    // ************
+    // CONSTRUCTORS
+    // ************
 
     public Node(Object data) {
         this.next = null;
@@ -14,6 +23,10 @@ public class Node {
         this.data = data;
         this.next = next;
     }
+
+    // *****************
+    // GETTERS & SETTERS
+    // *****************
 
     public int getIndex() {
         return index;
