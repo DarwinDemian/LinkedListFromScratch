@@ -14,6 +14,8 @@ public class Node {
     // CONSTRUCTORS
     // ************
 
+    public Node() {}
+
     public Node(Object data) {
         this.next = null;
         this.data = data;
