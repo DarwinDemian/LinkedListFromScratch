@@ -7,11 +7,13 @@ With this you can:
 - a toString method for sysouts
 - reversing the linked list and any subsequent linked lists and arrays inside it
 
-TODO:
+WIP:
 - Refactory
+- Test cases
+
+TODO:
 - More efficient reversing algorithm
 - Data flow with a diagram
 - Ordering
 - Remove at index, or at the end or beginning of the list
-- Test cases
 - Expanding test cases to real-world scenarios
