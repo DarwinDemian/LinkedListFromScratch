@@ -2,27 +2,56 @@ package tests;
 
 import java.util.Random;
 
+
 public class RandomDataGenerator {
-    public static final Random random = new Random();
+    private Random generator = new Random(0);
+    private Object seed;
 
-    public RandomDataGenerator(Object value) {
-
+    public Object getSeed() {
+        return seed;
     }
 
-    public RandomDataGenerator(Object value, boolean asArray) {
-
+    private void setSeed(Object seed) {
+        this.seed = seed;
     }
+
+    public void setGeneratorSeed(Object seed) {
+        if (seed instanceof Integer) {
+            this.generator = new Random((Integer) seed);
+        }
+
+        setSeed(seed);
+    }
+
+    // ***************
+    // PRIVATE METHODS
+    // ***************
 
     private int generateRandomInt() {
-        return random.nextInt(50 - 1) + 1;
+        return generator.nextInt(50 - 1) + 1;
     }
 
-    private void generateRandomString(int strValue) {
-
+    private String generateRandomString() {
+        // implement a seed and random string generator
+        return "test";
     }
 
-    private Object[] generateArrayOf(Object... values) {
-        Object[] intArr = { values };
+    // **************
+    // PUBLIC METHODS
+    // **************
+
+    public Object generateRandomData(Object seed) {
+        setGeneratorSeed(seed);
+        return seed instanceof String ? generateRandomString() : generateRandomInt();
+    }
+
+    public Object[] generateArrayOf(Object seed, int length) {
+        Object[] intArr = new Object[length];
+
+        for (int i = 0; i < intArr.length; i++) {
+            intArr[i] = generateRandomData(seed);
+        }
+
         return intArr;
     }
 
