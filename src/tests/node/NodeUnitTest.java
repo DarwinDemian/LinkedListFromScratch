@@ -8,8 +8,10 @@ import org.junit.Test;
 
 import com.node.Node;
 
+import tests.NodeUnitTestHelper;
+
 public class NodeUnitTest {
-    private List<Node> nodeList = UnitTestHelper.getNodesWithOrderedData();
+    private List<Node> nodeList = NodeUnitTestHelper.getNodesWithOrderedData();
 
     private Node thirdNode = nodeList.get(2);
     private Node secondNode = nodeList.get(1);

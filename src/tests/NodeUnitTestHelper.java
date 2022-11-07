@@ -1,4 +1,4 @@
-package tests.node;
+package tests;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,9 +6,8 @@ import java.util.List;
 
 import com.node.Node;
 
-import tests.RandomDataGenerator;
-
-public abstract class UnitTestHelper {
+public final class NodeUnitTestHelper {
+    private NodeUnitTestHelper() {}
 
     private static List<Node> nodesWithRandomData = new ArrayList<>();
 
@@ -18,7 +17,7 @@ public abstract class UnitTestHelper {
         }
     }
 
-    public static List<Node> getNodesWithRandomData(int numOfNodes) {
+    public static final List<Node> getNodesWithRandomData(int numOfNodes) {
         if (nodesWithRandomData == null) {
             createNodesWithRandomData(numOfNodes);
         }
@@ -26,7 +25,7 @@ public abstract class UnitTestHelper {
         return nodesWithRandomData;
     }
 
-    public static List<Node> getNodesWithOrderedData() {
+    public static final List<Node> getNodesWithOrderedData() {
         Node thirdNode = new Node(3);
         Node secondNode = new Node(2, thirdNode);
         Node node = new Node(1, secondNode);

@@ -5,7 +5,7 @@ import java.util.Collections;
 
 import com.node.Node;
 
-public abstract class LinkedListUtils {
+public final class LinkedListUtils {
     private LinkedListUtils() {
     }
 
@@ -30,7 +30,6 @@ public abstract class LinkedListUtils {
         } else if (nodeData.getClass().isArray()) {
 
             Object[] copiedArray = objectToArray(nodeData);
-
             newLinkedList.add(copiedArray);
 
         } else {
@@ -51,7 +50,7 @@ public abstract class LinkedListUtils {
     // PUBLIC METHODS
     // **************
 
-    public static LinkedList getReversedLinkedList(LinkedList linkedList) {
+    public static final LinkedList getReversedLinkedList(LinkedList linkedList) {
         LinkedList reversedLinkedList = new LinkedList();
 
         if (linkedList.getHead() != null) {
@@ -61,7 +60,7 @@ public abstract class LinkedListUtils {
         return reversedLinkedList;
     }
 
-    public static void getOrderedLinkedList(LinkedList linkedList) {
+    public static final void getOrderedLinkedList(LinkedList linkedList) {
         // TODO
     }
 }
