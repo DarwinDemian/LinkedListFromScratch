@@ -1,4 +1,4 @@
-package main;
+
 
 import com.node.list.LinkedList;
 import com.node.list.LinkedListUtils;

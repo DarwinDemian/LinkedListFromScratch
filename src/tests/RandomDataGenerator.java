@@ -3,6 +3,8 @@ package tests;
 import java.util.Random;
 
 public class RandomDataGenerator {
+    public static final Random random = new Random();
+
     public RandomDataGenerator(Object value) {
 
     }
@@ -12,7 +14,7 @@ public class RandomDataGenerator {
     }
 
     private int generateRandomInt() {
-        return new Random().nextInt(50 - 1) + 1;
+        return random.nextInt(50 - 1) + 1;
     }
 
     private void generateRandomString(int strValue) {
