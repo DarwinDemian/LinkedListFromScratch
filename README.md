@@ -10,6 +10,7 @@ With this you can:
 WIP:
 - Refactory
 - Test cases
+- Random Data Generator
 
 TODO:
 - More efficient reversing algorithm
