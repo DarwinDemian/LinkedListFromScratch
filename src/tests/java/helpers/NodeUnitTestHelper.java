@@ -1,10 +1,9 @@
-package tests;
+package tests.java.helpers;
 
+import java.com.node.Node;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import com.node.Node;
 
 public final class NodeUnitTestHelper {
     private NodeUnitTestHelper() {}

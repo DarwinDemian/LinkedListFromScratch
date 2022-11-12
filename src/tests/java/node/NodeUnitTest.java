@@ -1,14 +1,13 @@
-package tests.node;
+package tests.java.node;
 
 import static org.junit.Assert.assertEquals;
 
+import java.com.node.Node;
 import java.util.List;
 
 import org.junit.Test;
 
-import com.node.Node;
-
-import tests.NodeUnitTestHelper;
+import tests.java.helpers.NodeUnitTestHelper;
 
 public class NodeUnitTest {
     private List<Node> nodeList = NodeUnitTestHelper.getNodesWithOrderedData();

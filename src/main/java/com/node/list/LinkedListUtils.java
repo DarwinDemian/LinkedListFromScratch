@@ -1,9 +1,8 @@
-package com.node.list;
+package java.com.node.list;
 
+import java.com.node.Node;
 import java.util.Arrays;
 import java.util.Collections;
-
-import com.node.Node;
 
 public final class LinkedListUtils {
     private LinkedListUtils() {

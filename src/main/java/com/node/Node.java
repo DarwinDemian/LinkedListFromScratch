@@ -1,4 +1,4 @@
-package com.node;
+package java.com.node;
 
 public class Node {
 

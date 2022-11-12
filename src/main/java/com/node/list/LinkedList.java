@@ -1,8 +1,7 @@
-package com.node.list;
+package java.com.node.list;
 
+import java.com.node.Node;
 import java.util.Arrays;
-
-import com.node.Node;
 
 public class LinkedList {
 

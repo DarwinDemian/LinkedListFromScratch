@@ -1,7 +1,8 @@
+package java.com;
 
 
-import com.node.list.LinkedList;
-import com.node.list.LinkedListUtils;
+import java.com.node.list.LinkedList;
+import java.com.node.list.LinkedListUtils;
 
 public class Main {
 
