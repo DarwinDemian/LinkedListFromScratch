@@ -2,9 +2,9 @@ package randomdatagenerator;
 
 import com.project.exceptions.ParseIntException;
 import com.project.randomdatagenerator.RandomDataGenerator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RandomDataGeneratorUnitTest {
     RandomDataGenerator rng = new RandomDataGenerator();

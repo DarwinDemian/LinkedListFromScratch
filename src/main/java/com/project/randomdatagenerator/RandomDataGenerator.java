@@ -41,7 +41,7 @@ public class RandomDataGenerator {
             }
         }
 
-        // Set seed so you can know what seed you're using
+        // Make the seed used in this instance visible
         setSeed(seed);
     }
 
@@ -76,8 +76,7 @@ public class RandomDataGenerator {
                 : generateRandomInt();
     }
 
-    public Object[] generateArrayOf(Object seed, int length)
-            throws ParseIntException {
+    public Object[] generateArrayOf(Object seed, int length) throws ParseIntException {
         // set length for object array
         Object[] objectArray = new Object[length];
 
