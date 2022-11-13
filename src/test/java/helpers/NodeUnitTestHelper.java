@@ -65,4 +65,12 @@ public final class NodeUnitTestHelper {
         return Arrays.asList(node, secondNode, thirdNode);
     }
 
+    public static List<Node> getNodesWithOrderedDataWithoutNext() {
+        Node thirdNode = new Node(3);
+        Node secondNode = new Node(2);
+        Node node = new Node(1);
+
+        return Arrays.asList(node, secondNode, thirdNode);
+    }
+
 }

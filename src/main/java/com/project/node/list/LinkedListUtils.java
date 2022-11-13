@@ -14,7 +14,7 @@ public final class LinkedListUtils {
     // ***************
 
     private static void reverseLinkedList(LinkedList linkedListReference, LinkedList newLinkedList) {
-        for (int i = linkedListReference.getSize(); i > 0; i--) {
+        for (int i = linkedListReference.getSize(); i >= 0; i--) {
             copyDataToNewList(linkedListReference, newLinkedList, i);
         }
     }

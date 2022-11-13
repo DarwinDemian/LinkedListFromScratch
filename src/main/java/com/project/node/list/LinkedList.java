@@ -3,6 +3,7 @@ package com.project.node.list;
 import com.project.node.Node;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class LinkedList {
 
@@ -13,6 +14,34 @@ public class LinkedList {
     private int counter = 0;
     private Node head;
     private Node lastNode;
+
+    public LinkedList() {
+    }
+
+    public LinkedList(Object... data) {
+        goThroughObject(data);
+    }
+
+    // Add N objects to this LinkedList
+    private void goThroughObject(Object... data) {
+
+        // Go through each argument
+        for (Object obj : data) {
+
+            if (obj instanceof List<?>) {
+
+                // if the argument passed is a List, add everything inside it
+                for (Object objInsideArr : (List<?>) obj) {
+                    add(objInsideArr);
+                }
+
+            } else {
+
+                // else just add the Object in the argument
+                add(obj);
+            }
+        }
+    }
 
     // *****************
     // GETTERS & SETTERS
@@ -39,30 +68,37 @@ public class LinkedList {
     }
 
     public Node getNodeAtIndex(int index) {
-        if (head != null) {
-            Node nodeRev = head;
-
-            while (nodeRev.getNext() != null) {
-                nodeRev = nodeRev.getNext();
-
-                if (nodeRev.getIndex() == index) {
-                    return nodeRev;
-                }
-            }
-
-            return head;
+        // can't get an Index with an empty LinkedList
+        if (getHead() == null) {
+            return null;
         }
 
-        return null;
+        Node nodeRev = getHead();
+
+        // keep going through each Node in LinkedList
+        while (nodeRev.getNext() != null) {
+            nodeRev = nodeRev.getNext();
+
+            // If the Node index equals the index you passed, return it
+            if (nodeRev.getIndex() == index) {
+                return nodeRev;
+            }
+        }
+
+        // if nothings was found, you wanted the first node
+        return getHead();
     }
 
     // ***************
     // PRIVATE METHODS
     // ***************
 
+    // Update all variables necessary
     private void updateVariables(Node nodeToBeAdded, Node nodeRev) {
-        lastNode = nodeToBeAdded;
+
+        setLastNode(nodeToBeAdded);
         nodeRev.setNext(nodeToBeAdded);
+
         counter++;
         nodeToBeAdded.setIndex(counter);
     }
@@ -72,12 +108,17 @@ public class LinkedList {
     // **************
 
     public void add(Object data) {
-        if (head == null) {
-            head = new Node(data);
+        // if the data is already a Node, there is no need to create a new one with it
+        // just add the Node instead
+        boolean isNode = data instanceof Node;
+
+        if (getHead() == null) {
+            setHead(isNode ? (Node) data : new Node(data));
+            return;
         }
 
-        Node nodeToBeAdded = new Node(data);
-        Node nodeRev = head;
+        Node nodeToBeAdded = isNode ? (Node) data : new Node(data);
+        Node nodeRev = getHead();
 
         while (nodeRev.getNext() != null) {
             nodeRev = nodeRev.getNext();
@@ -86,26 +127,30 @@ public class LinkedList {
         updateVariables(nodeToBeAdded, nodeRev);
     }
 
+    // Goes through everything in LinkedList and sysouts everything inside it
     public String toString() {
         StringBuilder output = new StringBuilder();
 
-        if (head != null) {
-            Node nodeRev = head;
+        if (getHead() == null) {
+            return output.toString();
+        }
 
-            while (nodeRev.getNext() != null) {
-                nodeRev = nodeRev.getNext();
-                Object nodeData = nodeRev.getData();
-                String nodeDataAsString = nodeData.toString();
+        Node nodeRev = head;
 
-                output.append("[ ");
+        while (nodeRev.getNext() != null) {
+            output.append("[ ");
+            Object nodeData = nodeRev.getData();
+            String nodeDataAsString = nodeData.toString();
 
-                if (nodeData.getClass().isArray()) {
-                    nodeDataAsString = Arrays.asList((Object[]) nodeData).toString();
-                }
 
-                output.append(nodeDataAsString);
-                output.append(" ]");
+            if (nodeData.getClass().isArray()) {
+                nodeDataAsString = Arrays.toString((Object[]) nodeData);
             }
+
+            output.append(nodeDataAsString);
+            output.append(" ]");
+
+            nodeRev = nodeRev.getNext();
         }
 
         return output.toString();

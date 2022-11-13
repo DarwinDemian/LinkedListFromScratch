@@ -3,6 +3,8 @@ package com.project;
 import com.project.node.list.LinkedList;
 import com.project.node.list.LinkedListUtils;
 
+import java.util.Arrays;
+
 public class Main {
 
     private static void runDemonstration() {
@@ -41,7 +43,7 @@ public class Main {
         System.out.println();
         System.out.println("========================");
         System.out.println(linkedListType);
-        System.out.println(linkedList);
+        System.out.println(linkedList.toString());
         System.out.println("========================");
         System.out.println();
     }
