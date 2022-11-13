@@ -13,7 +13,7 @@ public class RandomDataGenerator {
     // **************
 
     private Random generator = new Random(0);
-    private Object seed;
+    private Object seed = 0;
 
     // *****************
     // GETTERS & SETTERS
@@ -73,13 +73,20 @@ public class RandomDataGenerator {
     // **************
 
     public Object generateRandomData(Object seed) throws ParseIntException {
-        // first set seed
-        setGeneratorSeed(seed);
+        if (seed != null) {
+            // if seed is passed, use it, otherwise use default '0' or seed already defined
+            setGeneratorSeed(seed);
+        }
 
         // return string or int depending on what was given as an argument
         return seed instanceof String
                 ? generateRandomString()
                 : generateRandomInt();
+    }
+
+    public Object generateRandomData() throws ParseIntException {
+        // if no argument is given, just generate data with random seed
+        return generateRandomData(generateRandomInt());
     }
 
     public Object[] generateArrayOf(Object seed, int length) throws ParseIntException {

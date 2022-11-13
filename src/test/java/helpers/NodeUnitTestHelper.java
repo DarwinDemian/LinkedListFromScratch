@@ -1,29 +1,60 @@
 package helpers;
 
+import com.project.exceptions.ParseIntException;
 import com.project.node.Node;
+import com.project.randomdatagenerator.RandomDataGenerator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public final class NodeUnitTestHelper {
-    private static final List<Node> nodesWithRandomData = new ArrayList<>();
+
+    // **************
+    // PRIVATE FIELDS
+    // **************
+
+    private static final List<Node> NODES_WITH_RANDOM_DATA = new ArrayList<>();
+    private static final RandomDataGenerator RANDOM_DATA_GENERATOR = new RandomDataGenerator();
+
+    // ***********
+    // CONSTRUCTOR
+    // ***********
 
     private NodeUnitTestHelper() {
     }
 
-    private static void createNodesWithRandomData(int numOfNodes) {
+    // ***************
+    // PRIVATE METHODS
+    // ***************
+
+    private static void createNodesWithRandomData(int numOfNodes, boolean withArrays) throws ParseIntException {
         for (int i = 0; i <= numOfNodes; i++) {
-            nodesWithRandomData.add(new Node());
+
+            Integer randomSeed = (Integer) new RandomDataGenerator().generateRandomData();
+            Integer secondRandomSeed = (Integer) new RandomDataGenerator().generateRandomData();
+
+            if (randomSeed > secondRandomSeed) {
+                NODES_WITH_RANDOM_DATA.add(new Node(RANDOM_DATA_GENERATOR.generateRandomData(1)));
+            } else if (withArrays) {
+                NODES_WITH_RANDOM_DATA.add(new Node(RANDOM_DATA_GENERATOR.generateArrayOf(1, 5)));
+            } else {
+                NODES_WITH_RANDOM_DATA.add(new Node(RANDOM_DATA_GENERATOR.generateRandomData("1")));
+            }
+
         }
     }
 
-    public static List<Node> getNodesWithRandomData(int numOfNodes) {
-        if (nodesWithRandomData.isEmpty()) {
-            createNodesWithRandomData(numOfNodes);
+    // **************
+    // PUBLIC METHODS
+    // **************
+
+    public static List<Node> getNodesWithRandomData(int numOfNodes, boolean withArrays) throws ParseIntException {
+        if (NODES_WITH_RANDOM_DATA.isEmpty()) {
+            createNodesWithRandomData(numOfNodes, withArrays);
         }
 
-        return nodesWithRandomData;
+        return NODES_WITH_RANDOM_DATA;
     }
 
     public static List<Node> getNodesWithOrderedData() {
