@@ -1,6 +1,7 @@
 package com.project.randomdatagenerator;
 
 import com.project.exceptions.ParseIntException;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Random;
@@ -55,11 +56,16 @@ public class RandomDataGenerator {
     }
 
     private String generateRandomString() {
-        // Creating byte array with length 8 -> length for new Random String
-        byte[] array = new byte[8];
-        generator.nextBytes(array);
 
-        return new String(array, StandardCharsets.UTF_8);
+        // setting parameters to RandomStringUtils
+        int count = 8; // Length
+        int start = 0; // start from ' '
+        int end = 0; // end in 'z'
+        boolean letters = true; // use letters
+        boolean numbers = false; // use numbers
+        char[] chars = null; // null, so it will use all chars
+
+        return RandomStringUtils.random(count, start, end, letters, numbers, chars, this.generator);
     }
 
     // **************
