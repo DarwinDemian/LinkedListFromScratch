@@ -3,7 +3,6 @@ package com.project.randomdatagenerator;
 import com.project.exceptions.ParseIntException;
 import org.apache.commons.lang3.RandomStringUtils;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
 public class RandomDataGenerator {
@@ -73,7 +72,7 @@ public class RandomDataGenerator {
     // **************
 
     public Object generateRandomData(Object seed) throws ParseIntException {
-        if (seed != null) {
+        if (seed != null && getSeed() != seed) {
             // if seed is passed, use it, otherwise use default '0' or seed already defined
             setGeneratorSeed(seed);
         }

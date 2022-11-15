@@ -15,12 +15,20 @@ public class LinkedList {
     private Node head;
     private Node lastNode;
 
+    // ************
+    // CONSTRUCTORS
+    // ************
+
     public LinkedList() {
     }
 
     public LinkedList(Object... data) {
         goThroughObject(data);
     }
+
+    // ******************
+    // CONSTRUCTOR METHOD
+    // ******************
 
     // Add N objects to this LinkedList
     private void goThroughObject(Object... data) {
@@ -85,7 +93,7 @@ public class LinkedList {
             }
         }
 
-        // if nothings was found, you wanted the first node
+        // if nothing was found, you wanted the first node
         return getHead();
     }
 
@@ -127,7 +135,7 @@ public class LinkedList {
         updateVariables(nodeToBeAdded, nodeRev);
     }
 
-    // Goes through everything in LinkedList and sysouts everything inside it
+    // Goes through everything in LinkedList and sys-outs everything inside it
     public String toString() {
         StringBuilder output = new StringBuilder();
 
@@ -141,7 +149,6 @@ public class LinkedList {
             output.append("[ ");
             Object nodeData = nodeRev.getData();
             String nodeDataAsString = nodeData.toString();
-
 
             if (nodeData.getClass().isArray()) {
                 nodeDataAsString = Arrays.toString((Object[]) nodeData);

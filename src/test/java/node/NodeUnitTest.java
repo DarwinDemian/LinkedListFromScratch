@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class NodeUnitTest {
     private final List<Node> nodeList = NodeUnitTestHelper.getNodesWithOrderedData();
-
     private final Node thirdNode = nodeList.get(2);
     private final Node secondNode = nodeList.get(1);
     private final Node node = nodeList.get(0);

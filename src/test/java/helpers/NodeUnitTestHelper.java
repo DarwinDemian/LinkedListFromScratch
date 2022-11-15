@@ -14,7 +14,7 @@ public final class NodeUnitTestHelper {
     // PRIVATE FIELDS
     // **************
 
-    private static final List<Node> NODES_WITH_RANDOM_DATA = new ArrayList<>();
+    private static List<Node> nodesWithRandomData = new ArrayList<>();
     private static final RandomDataGenerator RANDOM_DATA_GENERATOR = new RandomDataGenerator();
 
     // ***********
@@ -29,19 +29,30 @@ public final class NodeUnitTestHelper {
     // ***************
 
     private static void createNodesWithRandomData(int numOfNodes, boolean withArrays) throws ParseIntException {
+        nodesWithRandomData = new ArrayList<>();
+
         for (int i = 0; i <= numOfNodes; i++) {
 
-            Integer randomSeed = (Integer) new RandomDataGenerator().generateRandomData();
-            Integer secondRandomSeed = (Integer) new RandomDataGenerator().generateRandomData();
+            Integer randomSeed = (Integer) RANDOM_DATA_GENERATOR.generateRandomData();
+            Integer secondRandomSeed = (Integer) RANDOM_DATA_GENERATOR.generateRandomData();
 
-            if (randomSeed > secondRandomSeed) {
-                NODES_WITH_RANDOM_DATA.add(new Node(RANDOM_DATA_GENERATOR.generateRandomData(1)));
-            } else if (withArrays) {
-                NODES_WITH_RANDOM_DATA.add(new Node(RANDOM_DATA_GENERATOR.generateArrayOf(1, 5)));
+            decideDataTypeToGenerate(withArrays, randomSeed, secondRandomSeed);
+        }
+    }
+
+    private static void decideDataTypeToGenerate(boolean withArrays, Integer randomSeed, Integer secondRandomSeed) throws ParseIntException {
+        if (randomSeed % 2 == 0) {
+            if (withArrays && secondRandomSeed % 2 == 0) {
+                nodesWithRandomData.add(new Node(RANDOM_DATA_GENERATOR.generateArrayOf(secondRandomSeed, 3)));
             } else {
-                NODES_WITH_RANDOM_DATA.add(new Node(RANDOM_DATA_GENERATOR.generateRandomData("1")));
+                nodesWithRandomData.add(new Node(RANDOM_DATA_GENERATOR.generateRandomData(randomSeed)));
             }
-
+        } else {
+            if (withArrays && secondRandomSeed % 2 == 0) {
+                nodesWithRandomData.add(new Node(RANDOM_DATA_GENERATOR.generateArrayOf(secondRandomSeed.toString(), 3)));
+            } else {
+                nodesWithRandomData.add(new Node(RANDOM_DATA_GENERATOR.generateRandomData(randomSeed.toString())));
+            }
         }
     }
 
@@ -50,11 +61,9 @@ public final class NodeUnitTestHelper {
     // **************
 
     public static List<Node> getNodesWithRandomData(int numOfNodes, boolean withArrays) throws ParseIntException {
-        if (NODES_WITH_RANDOM_DATA.isEmpty()) {
-            createNodesWithRandomData(numOfNodes, withArrays);
-        }
+        createNodesWithRandomData(numOfNodes, withArrays);
 
-        return NODES_WITH_RANDOM_DATA;
+        return nodesWithRandomData;
     }
 
     public static List<Node> getNodesWithOrderedData() {
@@ -72,5 +81,4 @@ public final class NodeUnitTestHelper {
 
         return Arrays.asList(node, secondNode, thirdNode);
     }
-
 }

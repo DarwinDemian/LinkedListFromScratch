@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RandomDataGeneratorUnitTest {
     RandomDataGenerator rng = new RandomDataGenerator();
 
-    // ****************
-    // TEST RETURN TYPE 
-    // ****************
+    // ***********
+    // RETURN TYPE
+    // ***********
 
     @Test
     public void testIntegerType() throws ParseIntException {
@@ -27,9 +27,9 @@ public class RandomDataGeneratorUnitTest {
         assertTrue(stringVal instanceof String); // if you pass a String, it should generate a String
     }
 
-    // *****************
-    // TEST RANDOM VALUE 
-    // *****************
+    // ************
+    // RANDOM VALUE
+    // ************
 
     @Test
     public void testRandomInteger() throws ParseIntException {
@@ -45,13 +45,14 @@ public class RandomDataGeneratorUnitTest {
     @Test
     public void testRandomString() throws ParseIntException {
         Object stringVal = rng.generateRandomData("1");
-        Object stringValCopy = rng.generateRandomData("1");
-
         Object stringVal2 = rng.generateRandomData("2");
 
         assertNotEquals(stringVal, stringVal2); // different seeds should not generate the same value
-        assertEquals(stringVal, stringValCopy); // the same seed should generate the same value
     }
+
+    // *****
+    // ARRAY
+    // *****
 
     @Test
     public void testIntegerArray() throws ParseIntException {
