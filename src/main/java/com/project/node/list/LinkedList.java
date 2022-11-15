@@ -111,6 +111,19 @@ public class LinkedList {
         nodeToBeAdded.setIndex(counter);
     }
 
+    private static void valueToString(StringBuilder output, Node nodeRev) {
+        output.append("[ ");
+        Object nodeData = nodeRev.getData();
+        String nodeDataAsString = nodeData.toString();
+
+        if (nodeData.getClass().isArray()) {
+            nodeDataAsString = Arrays.toString((Object[]) nodeData);
+        }
+
+        output.append(nodeDataAsString);
+        output.append(" ]");
+    }
+
     // **************
     // PUBLIC METHODS
     // **************
@@ -156,16 +169,4 @@ public class LinkedList {
         return output.toString();
     }
 
-    private static void valueToString(StringBuilder output, Node nodeRev) {
-        output.append("[ ");
-        Object nodeData = nodeRev.getData();
-        String nodeDataAsString = nodeData.toString();
-
-        if (nodeData.getClass().isArray()) {
-            nodeDataAsString = Arrays.toString((Object[]) nodeData);
-        }
-
-        output.append(nodeDataAsString);
-        output.append(" ]");
-    }
 }
