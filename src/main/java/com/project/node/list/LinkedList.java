@@ -146,20 +146,26 @@ public class LinkedList {
         Node nodeRev = head;
 
         while (nodeRev.getNext() != null) {
-            output.append("[ ");
-            Object nodeData = nodeRev.getData();
-            String nodeDataAsString = nodeData.toString();
-
-            if (nodeData.getClass().isArray()) {
-                nodeDataAsString = Arrays.toString((Object[]) nodeData);
-            }
-
-            output.append(nodeDataAsString);
-            output.append(" ]");
+            valueToString(output, nodeRev);
 
             nodeRev = nodeRev.getNext();
         }
 
+        valueToString(output, nodeRev);
+
         return output.toString();
+    }
+
+    private static void valueToString(StringBuilder output, Node nodeRev) {
+        output.append("[ ");
+        Object nodeData = nodeRev.getData();
+        String nodeDataAsString = nodeData.toString();
+
+        if (nodeData.getClass().isArray()) {
+            nodeDataAsString = Arrays.toString((Object[]) nodeData);
+        }
+
+        output.append(nodeDataAsString);
+        output.append(" ]");
     }
 }
