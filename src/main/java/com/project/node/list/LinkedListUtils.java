@@ -13,10 +13,14 @@ public final class LinkedListUtils {
     // PRIVATE METHODS
     // ***************
 
-    private static void reverseLinkedList(LinkedList linkedListReference, LinkedList newLinkedList) {
+    private static LinkedList reverseLinkedList(LinkedList linkedListReference) {
+        LinkedList newLinkedList = new LinkedList();
+
         for (int i = linkedListReference.getSize(); i >= 0; i--) {
             copyDataToNewList(linkedListReference, newLinkedList, i);
         }
+
+        return newLinkedList;
     }
 
     private static void copyDataToNewList(LinkedList linkedListReference, LinkedList newLinkedList, int i) {
@@ -51,13 +55,7 @@ public final class LinkedListUtils {
     // **************
 
     public static LinkedList getReversedLinkedList(LinkedList linkedList) {
-        LinkedList reversedLinkedList = new LinkedList();
-
-        if (linkedList.getHead() != null) {
-            reverseLinkedList(linkedList, reversedLinkedList);
-        }
-
-        return reversedLinkedList;
+        return linkedList.getHead() != null ? reverseLinkedList(linkedList) : null;
     }
 
     public static void getOrderedLinkedList(LinkedList linkedList) {
