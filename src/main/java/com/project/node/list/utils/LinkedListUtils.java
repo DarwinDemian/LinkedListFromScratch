@@ -11,7 +11,7 @@ public final class LinkedListUtils {
     // **************
 
     public static LinkedList getReversedLinkedList(LinkedList linkedList) {
-        return LinkedListReverse.getReversedLinkedList(linkedList);
+        return LinkedListRevert.getReversedLinkedList(linkedList);
     }
 
     public static LinkedList getOrderedLinkedList(LinkedList linkedList) {

@@ -6,8 +6,8 @@ import com.project.node.list.LinkedList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public final class LinkedListReverse {
-    private LinkedListReverse() {
+public final class LinkedListRevert {
+    private LinkedListRevert() {
     }
 
     // ***************
@@ -51,6 +51,6 @@ public final class LinkedListReverse {
     // **************
 
     public static LinkedList getReversedLinkedList(LinkedList linkedList) {
-        return linkedList.getHead() != null ? LinkedListReverse.reverseLinkedList(linkedList) : null;
+        return linkedList.getHead() != null ? LinkedListRevert.reverseLinkedList(linkedList) : null;
     }
 }

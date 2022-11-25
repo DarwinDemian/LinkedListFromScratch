@@ -1,7 +1,6 @@
 package com.project.algorithms;
 
 public final class MergeSort {
-
     private MergeSort() {
     }
 
