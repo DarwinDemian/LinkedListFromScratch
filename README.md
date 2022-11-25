@@ -7,7 +7,7 @@ With this you can:
 - a toString method for sysouts
 - reversing the linked list and any subsequent linked lists and arrays inside it
 - ordering the linked list and up to one nested linkedlist and arrays while preserving the nested linkedlist/array positions.
-  - Note: ordering is only support if all the data inside the Linked List is an integer.
+  - Note: ordering is only support if all the data inside the Linked List are integers.
 - see how the code deals with data that was randomly generated with the provided test cases.
 
 DONE:
