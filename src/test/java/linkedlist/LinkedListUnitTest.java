@@ -70,4 +70,15 @@ public class LinkedListUnitTest extends LinkedListSteps {
         then_LinkedListWithRandomDataHasDistinctValues();
     }
 
+    // ****************
+    // SORT LINKED LIST
+    // ****************
+
+    @Test
+    public void test_LinkedListWithSortedData() throws ParseIntException {
+        given_LinkedListIsConstructedWithUnorderedData();
+        when_LinkedListIsOrdered();
+        then_LinkedListWithUnorderedDataIsOrdered();
+    }
+
 }

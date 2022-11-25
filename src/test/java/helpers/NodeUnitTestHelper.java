@@ -81,4 +81,5 @@ public final class NodeUnitTestHelper {
 
         return Arrays.asList(node, secondNode, thirdNode);
     }
+
 }

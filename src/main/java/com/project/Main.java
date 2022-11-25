@@ -8,13 +8,7 @@ import java.util.Arrays;
 public class Main {
 
     private static void runDemonstration() {
-        LinkedList linkedList = new LinkedList();
-
-        linkedList.add(1);
-        linkedList.add(2);
-        linkedList.add(3);
-        linkedList.add(4);
-        linkedList.add(5);
+        LinkedList linkedList = new LinkedList(1, 2, 3, 4, 5);
 
         Integer[] strArr = {6, 7, 8};
 
@@ -26,9 +20,7 @@ public class Main {
 
         runSysOut("Reversed Single LinkedList", reversedLinkedList);
 
-        LinkedList doubleLinkedList = new LinkedList();
-        doubleLinkedList.add(9);
-        doubleLinkedList.add(10);
+        LinkedList doubleLinkedList = new LinkedList(9, 10);
 
         linkedList.add(doubleLinkedList);
 

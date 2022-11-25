@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RandomDataGeneratorUnitTest {
-    RandomDataGenerator rng = new RandomDataGenerator();
+    private RandomDataGenerator rng = new RandomDataGenerator();
 
     // ***********
     // RETURN TYPE
@@ -17,7 +17,7 @@ public class RandomDataGeneratorUnitTest {
     public void testIntegerType() throws ParseIntException {
         Object integerVal = rng.generateRandomData(2);
 
-        assertTrue(integerVal instanceof Integer); // if you pass a Integer, it should generate a Integer
+        assertTrue(integerVal instanceof Integer); // if you pass an Integer, it should generate an Integer
     }
 
     @Test
