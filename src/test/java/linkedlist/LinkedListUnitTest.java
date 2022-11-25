@@ -22,7 +22,7 @@ public class LinkedListUnitTest extends LinkedListSteps {
     }
 
     // ******************
-    // REVERT LINKED LIST
+    // REVERSE LINKED LIST
     // ******************
 
     @Test
@@ -33,7 +33,7 @@ public class LinkedListUnitTest extends LinkedListSteps {
     }
 
     // ***************************
-    // REVERT LINKED LIST W/ ARRAY
+    // REVERSE LINKED LIST W/ ARRAY
     // ***************************
 
     @Test
@@ -44,7 +44,7 @@ public class LinkedListUnitTest extends LinkedListSteps {
     }
 
     // **********************************
-    // REVERT NESTED LINKED LIST W/ ARRAY
+    // REVERSE NESTED LINKED LIST W/ ARRAY
     // **********************************
 
     @Test
