@@ -3,7 +3,7 @@ package linkedlist;
 import com.project.exceptions.ParseIntException;
 import com.project.node.Node;
 import com.project.node.list.LinkedList;
-import com.project.node.list.LinkedListUtils;
+import com.project.node.list.utils.LinkedListUtils;
 import helpers.NodeUnitTestHelper;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -154,6 +154,7 @@ public class LinkedListSteps {
         assertEquals(9, nestedLinkedList.getNodeAtIndex(2).getData());
     }
 
+    // TODO: randomly ordered linked list
     protected void assertRandomOrderedContent(LinkedList linkedList) {
         for (int i = 0; i < linkedList.getSize(); i++) {
             Object thisNode = linkedList.getNodeAtIndex(i).getData();

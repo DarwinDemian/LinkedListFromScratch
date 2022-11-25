@@ -111,30 +111,28 @@ public class LinkedList {
         counter++;
         nodeToBeAdded.setIndex(counter);
         
-//        calculateNumOfItems(nodeToBeAdded);
     }
 
-//    private void calculateNumOfItems(Node nodeToBeAdded) {
-//        Object nodeData = nodeToBeAdded.getData();
-//
-//        if (nodeData instanceof LinkedList) {
-//            calculateNumOfItemsIn((LinkedList) nodeData);
-//        } else if (nodeData instanceof Object[]) {
-//            calculateNumOfItemsIn((Object[]) nodeData);
-//        } else {
-//            numOfItems++;
-//        }
-//    }
-//
-//    private void calculateNumOfItemsIn(LinkedList linkedList) {
-//        for (int i = 0; i < linkedList.getSize(); i++) {
-//            numOfItems++;
-//        }
-//    }
-//
-//    private void calculateNumOfItemsIn(Object[] objArr) {
-//
-//    }
+    private void calculateNumOfItems(Node nodeToBeAdded) {
+        Object nodeData = nodeToBeAdded.getData();
+
+        if (nodeData instanceof LinkedList) {
+            calculateNumOfItemsIn((LinkedList) nodeData);
+        } else if (nodeData instanceof Object[]) {
+            calculateNumOfItemsIn((Object[]) nodeData);
+        } else {
+            numOfItems++;
+        }
+    }
+
+    private void calculateNumOfItemsIn(LinkedList linkedList) {
+        for (int i = 0; i < linkedList.getSize(); i++) {
+            numOfItems++;
+        }
+    }
+
+    private void calculateNumOfItemsIn(Object[] objArr) {
+    }
 
     private static void valueToString(StringBuilder output, Node nodeRev) {
         output.append("[ ");

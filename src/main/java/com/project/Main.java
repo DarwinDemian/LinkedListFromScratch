@@ -1,9 +1,7 @@
 package com.project;
 
 import com.project.node.list.LinkedList;
-import com.project.node.list.LinkedListUtils;
-
-import java.util.Arrays;
+import com.project.node.list.utils.LinkedListUtils;
 
 public class Main {
 
